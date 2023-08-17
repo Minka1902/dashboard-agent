@@ -56,7 +56,7 @@ setInterval(() => {
         const ip = results[newName][0];
         updateMemory(config.pathToDisk, ip);
     }
-}, (15 * 1000));
+}, (20 * 1000));
 
 setInterval(() => {
     if (config.websitesToCheck.length !== 0) {
@@ -64,7 +64,7 @@ setInterval(() => {
             checkWebsite(config.websitesToCheck[i]);
         }
     }
-}, (5 * 1000));
+}, (20 * 1000));
 
 app.use(errorLogger);   // enabling the error logger
 app.use(errors());      // celebrate error handler
