@@ -19,7 +19,7 @@ app.use(bodyParser.json()); // parse application/json
 
 app.use(requestLogger);     // enabling the request logger
 
-const { updateMemory, addEntryToCollection } = require('./controllers/sources');
+const { updateMemory, addEntryToCollection, checkWebsite } = require('./controllers/sources');
 
 
 const nets = networkInterfaces();
@@ -44,14 +44,26 @@ for (const name of Object.keys(nets)) {
 
 // ! every hour the server will check the source and add an entry to the source collection
 setInterval(() => {
-    const ip = results[newName][0];
-    addEntryToCollection(config.pathToDisk, ip);
+    if (config.isMemoryCheck) {
+        const ip = results[newName][0];
+        addEntryToCollection(config.pathToDisk, ip);
+    }
 }, (3600 * 1000));
 
-// ! every 10 seconds the server will check the source
+// ! every 15 seconds the server will check the source
 setInterval(() => {
-    const ip = results[newName][0];
-    updateMemory(config.pathToDisk, ip);
+    if (config.isMemoryCheck) {
+        const ip = results[newName][0];
+        updateMemory(config.pathToDisk, ip);
+    }
+}, (15 * 1000));
+
+setInterval(() => {
+    if (config.websitesToCheck.length !== 0) {
+        for (let i = 0; i < config.websitesToCheck.length; i++) {
+            checkWebsite(config.websitesToCheck[i]);
+        }
+    }
 }, (5 * 1000));
 
 app.use(errorLogger);   // enabling the error logger
