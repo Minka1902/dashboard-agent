@@ -5,8 +5,7 @@
 /.vscode
 /.pnp
 .pnp.js
-error.log
-request.log
+*.log
 
 # testing
 /coverage

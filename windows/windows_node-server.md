@@ -27,6 +27,6 @@ at the end it should look like this
 }
 Is this OK? ENTER
 
-npm install body-parser celebrate cors diskspace dotenv express express-winston node-windows winston
+npm install body-parser celebrate cors diskspace dotenv express node-windows
 
 node install.js ====> this will start the windows Service and should add a folder named 'daemon'

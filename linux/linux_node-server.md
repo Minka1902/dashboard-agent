@@ -31,7 +31,7 @@ license: ENTER
 Is this OK? ENTER
 
 # installing packages
-npm install body-parser celebrate cors diskspace dotenv express express-winston winston
+npm install body-parser celebrate cors diskspace dotenv express
 
 # # # At this point you move all the files and folders into that directory (g-dashboard_lin_bg_check).
 

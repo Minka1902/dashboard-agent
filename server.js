@@ -2,11 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require("cors");
 const { errors } = require('celebrate');
-const { requestLogger, errorLogger } = require('./middleware/logger');
 const { networkInterfaces } = require('os');
 const config = require('./config');
+const { unregister } = require('scharff');
 
-// ! MAKE sure that the disk name is correct.
 const app = express();
 
 require('dotenv').config();
@@ -17,10 +16,7 @@ app.use(cors());
 
 app.use(bodyParser.json()); // parse application/json
 
-app.use(requestLogger);     // enabling the request logger
-
-const { updateMemory, addEntryToCollection, checkWebsite } = require('./controllers/sources');
-
+const { updateMemory, createServerEntry, checkWebsite } = require('./controllers/sources');
 
 const nets = networkInterfaces();
 const results = Object.create(null); // Or just '{}', an empty object
@@ -43,10 +39,11 @@ for (const name of Object.keys(nets)) {
 }
 
 // ! every hour the server will check the source and add an entry to the source collection
+// ! checks the server it runs on
 setInterval(() => {
     if (config.isMemoryCheck) {
         const ip = results[newName][0];
-        addEntryToCollection(config.pathToDisk, ip);
+        createServerEntry(config.pathToDisk, ip);
     }
 }, (3600 * 1000));
 
@@ -58,6 +55,16 @@ setInterval(() => {
     }
 }, (20 * 1000));
 
+// ! every half hour the server will check the source and add an entry to the source collection
+// ! checks the websites config contains
+setInterval(() => {
+    if (config.websitesToCheck.length !== 0) {
+        for (let i = 0; i < config.websitesToCheck.length; i++) {
+            checkWebsite(config.websitesToCheck[i], true);
+        }
+    }
+}, (1800 * 1000));
+
 setInterval(() => {
     if (config.websitesToCheck.length !== 0) {
         for (let i = 0; i < config.websitesToCheck.length; i++) {
@@ -66,7 +73,6 @@ setInterval(() => {
     }
 }, (20 * 1000));
 
-app.use(errorLogger);   // enabling the error logger
 app.use(errors());      // celebrate error handler
 
 app.listen(config.PORT, function () {
