@@ -1,1 +1,0 @@
-cd /home/prod/g-dashboard_lin_bg_check/; node server.js

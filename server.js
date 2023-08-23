@@ -39,42 +39,39 @@ for (const name of Object.keys(nets)) {
 }
 
 // ! every hour the server will check the source and add an entry to the source collection
-// ! checks the server it runs on
 setInterval(() => {
-    if (config.isMemoryCheck) {
+    if (config.isMemoryCheck || false) {
         const ip = results[newName][0];
         createServerEntry(config.pathToDisk, ip);
     }
-}, (3600 * 1000));
+}, (config.secondsToUpdateResources * 1000));
 
-// ! every 15 seconds the server will check the source
+// ! every 20 seconds the server will check the source
 setInterval(() => {
-    if (config.isMemoryCheck) {
+    if (config.isMemoryCheck || false) {
         const ip = results[newName][0];
         updateMemory(config.pathToDisk, ip);
     }
-}, (20 * 1000));
+}, (config.secondsToCheckResources * 1000));
 
 // ! every half hour the server will check the source and add an entry to the source collection
-// ! checks the websites config contains
 setInterval(() => {
-    if (config.websitesToCheck.length !== 0) {
+    if (config.websitesToCheck && config.websitesToCheck.length !== 0) {
         for (let i = 0; i < config.websitesToCheck.length; i++) {
             checkWebsite(config.websitesToCheck[i], true);
         }
     }
-}, (1800 * 1000));
+}, (config.secondsToUpdateResources * 1000));
 
+// ! every 20 seconds the server will check the websites from the config.js
 setInterval(() => {
-    if (config.websitesToCheck.length !== 0) {
+    if (config.websitesToCheck && config.websitesToCheck.length !== 0) {
         for (let i = 0; i < config.websitesToCheck.length; i++) {
             checkWebsite(config.websitesToCheck[i]);
         }
     }
-}, (20 * 1000));
+}, (config.secondsToCheckResources * 1000));
 
 app.use(errors());      // celebrate error handler
 
-app.listen(config.PORT, function () {
-    console.log(`App is running on port ${config.PORT}`);
-});
+console.log('App is running correctly');

@@ -30,7 +30,7 @@ module.exports.createServerEntry = (whatDisk, ip) => {
             if (result) {
                 let newData = { memoryLeft: result.free, totalMemory: result.total, collectionName: `${ip}` };
                 newData.checkedAt = new Date();
-                fetch(`http://89.169.96.143:4001/add-entry`, {
+                fetch(`http://${config.server}:${config.PORT}/add-entry`, {
                     body: JSON.stringify(newData),
                     headers: {
                         'Content-Type': 'application/json',
@@ -63,9 +63,9 @@ module.exports.checkWebsite = (address, isEntry = false) => {
                 updateSource(address, newData)
                     .then((data) => {
                         if (data.message === 'Successfully updated.') {
-                            let dataObj = { status: 200, isActive: true, collectionName: `${address}` };
-                            dataObj.checkedAt = new Date();
                             if (isEntry) {
+                                let dataObj = { status: 200, isActive: true, collectionName: `${address}` };
+                                dataObj.checkedAt = new Date();
                                 createWebEntry(dataObj);
                             }
                         }
@@ -108,7 +108,7 @@ module.exports.checkWebsite = (address, isEntry = false) => {
 };
 
 const updateSource = (address, data) => {
-    return fetch(`http://${config.server}:4001/update/${address}`, {
+    return fetch(`http://${config.server}:${config.PORT}/update/${address}`, {
         body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json',
@@ -119,7 +119,7 @@ const updateSource = (address, data) => {
 };
 
 const createWebEntry = (body) => {
-    fetch(`http://${config.server}:4001/add-entry`, {
+    fetch(`http://${config.server}:${config.PORT}/add-entry`, {
         body: JSON.stringify(body),
         headers: {
             'Content-Type': 'application/json',
