@@ -1,7 +1,7 @@
 const config =
 {
     name: '',
-    description: `g-Dashboard background checker for ${config.platform === 'win32' ? 'Windows' : 'Linux'} machine.`,
+    description: `g-Dashboard background checker for ${process.platform === 'win32' ? 'Windows' : 'Linux'} machine.`,
     server: '89.169.96.143',
     PORT: 4001,
     platform: process.platform,

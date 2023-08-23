@@ -42,19 +42,22 @@ license: ENTER </br>
 Is this OK? ENTER
 
 ## installing packages
-`npm install body-parser celebrate cors diskspace dotenv express scharff node-windows node-linux`
+### Windows
+`npm install body-parser celebrate cors diskspace dotenv express scharff node-windows`
+### Linux
+`npm install body-parser celebrate cors diskspace dotenv express scharff node-linux`
 
 At this point you move all the files and folders into the directory (g-agent).
 
 ## Creating the Service:
 ### Windows
-`node install.js` ==> this will start the Windows service and should add a folder named 'daemon'
+`node windowsInstall.js` ==> this will start the Windows service and should add a folder named 'daemon'
 ### Linux
-`sudo node install.js` ==> this will start the Linux service and will add a file named gagent.service to /etc/systemd/system
+`sudo node linuxInstall.js` ==> this will start the Linux service and will add a file named gagent.service to /etc/systemd/system
 
 ## config.js Settings
- 1) name: Name of the service that will be created (g-Agent_YOURNAME), DEFUALT: g-Agent, no spaces in the name.
- 2) description: description of the service that will be created, DEFUALT: g-Dashboard background checker for `YOUR MACHINE` machine. 
+ 1) name: g-Agent_service.
+ 2) description: g-Dashboard background checker for `YOUR MACHINE` machine. 
  3) server: IP address of the main server to which all agents will report.
  4) PORT: Port of the main server to which all agents report.
  5) platform: operating system of the agent.
@@ -62,5 +65,5 @@ At this point you move all the files and folders into the directory (g-agent).
  7) pathToScript: Path to the script of the service (server.js).
  8) websitesToCheck: An Array of URLs that the agent will check and update.
  9) isMemoryCheck: Boolean indicating whether the agent needs to do a memory check.
-10) secondsToCheckResources: Number.
-11) secondsToUpdateResources: Number.
+10) secondsToCheckResources: Seconds between every check.
+11) secondsToUpdateResources: Seconds between every update.
