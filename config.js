@@ -1,9 +1,8 @@
 const config =
 {
-    name: '15.12 build share',
-    description: 'Disk space left on build shared folder.',
+    name: '',
+    description: `g-Dashboard background checker for ${config.platform === 'win32' ? 'Windows' : 'Linux'} machine.`,
     server: '89.169.96.143',
-    // server: 'localhost',
     PORT: 4001,
     platform: process.platform,
     pathToDisk: process.platform === 'win32' ? 'C' : '/home/prod/',

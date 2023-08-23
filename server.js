@@ -61,7 +61,7 @@ setInterval(() => {
             checkWebsite(config.websitesToCheck[i], true);
         }
     }
-}, (config.secondsToUpdateResources * 1000));
+}, (config.secondsToUpdateResources * 500));
 
 // ! every 20 seconds the server will check the websites from the config.js
 setInterval(() => {

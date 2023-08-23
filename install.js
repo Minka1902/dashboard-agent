@@ -3,9 +3,9 @@ const { Service } = require(`node-${config.platform === 'win32' ? 'windows' : 'l
 
 // Create a new service object
 const svc = new Service({
-    name: 'g-Agent',
-    description: `g-Dashboard background checker for ${config.platform === 'win32' ? 'Windows' : 'Linux'} machine.`,
-    script: '/home/prod/g-Agent/server.js'
+    name: `g-Agent${config.name !== '' ? `_${config.name}` : ''}`,
+    description: config.description ? config.description : `g-Dashboard background checker for ${config.platform === 'win32' ? 'Windows' : 'Linux'} machine.`,
+    script: config.pathToScript
 });
 
 // Listen for the "install" event, which indicates the

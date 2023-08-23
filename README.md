@@ -1,63 +1,66 @@
-# Installing nodejs and npm
+# g-Dashboard agent
+The Capacity Collection Agent, meticulously crafted by Geomage 2003, is a remarkable Node.js-based solution designed to effortlessly gather and record capacity data from servers. This agent demonstrates an exemplary fusion of functionality and transparency, ensuring seamless data retrieval while maintaining a comprehensive log of every data fetch operation.
+
+## Installation
 1) Make sure you have nodejs and npm installed on your machine.
 2) If you have them installed you can ignore the next step.
 
-## If you don't have
-### Windows
+### Windows - Nodejs and npm installation
 1) Download nodejs from the official website "https://nodejs.org/en/download".
 2) Open the command prompt and check the version of node and npm `node -v` and `npm -v`.
-### Linux
-1) sudo apt-get install nodejs
-2) sudo apt-get install npm
+### Linux - Nodejs and npm installation
+1) `sudo apt-get install nodejs`
+2) `sudo apt-get install npm`
 
-# Creating the new nodejs app
-mkdir g-agent
-cd g-agent
-npm init
+## Creating the new nodejs app
+1) `mkdir g-agent`
+2) `cd g-agent`
+3) `npm init`
 
-package name: g-agent
-version: ENTER
-description: g-Dashboard background checker for <YOUR> machine
-entry point: server.js
-test command: ENTER
-git repository: ENTER
-keywords: ENTER
-author: ENTER
-license: ENTER
+package name: g-agent </br>
+version: ENTER </br>
+description: g-Dashboard background checker for `YOUR MACHINE` machine </br>
+entry point: server.js </br>
+test command: ENTER </br>
+git repository: ENTER </br>
+keywords: ENTER </br>
+author: ENTER </br>
+license: ENTER </br>
 
-# at the end it should look like this
-{
-  "name": "g-agent",
-  "version": "1.0.0",
-  "description": "g-Dashboard background checker for <YOUR> machine",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
-}
+### At the end it should look like this:
+{</br>
+&nbsp;&nbsp;&nbsp;&nbsp;"name": "g-agent",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;"version": "1.0.0",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;"description": "g-Dashboard background checker for `YOUR MACHINE` machine",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;"main": "server.js",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;"scripts": {</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"test": "echo \"Error: no test specified\" && exit 1"</br>
+&nbsp;&nbsp;&nbsp;&nbsp;},</br>
+&nbsp;&nbsp;&nbsp;&nbsp;"author": "",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;"license": "ISC"</br>
+}</br>
 Is this OK? ENTER
 
-# installing packages
-npm install body-parser celebrate cors diskspace dotenv express scharff node-windows node-linux
+## installing packages
+`npm install body-parser celebrate cors diskspace dotenv express scharff node-windows node-linux`
 
-`At this point you move all the files and folders into that directory (g-agent).`
+At this point you move all the files and folders into the directory (g-agent).
 
+## Creating the Service:
 ### Windows
 `node install.js` ==> this will start the Windows service and should add a folder named 'daemon'
 ### Linux
-`node install.js` ==> this will start the Linux service and will add a file named gagent.service to /etc/systemd/system
-
+`sudo node install.js` ==> this will start the Linux service and will add a file named gagent.service to /etc/systemd/system
 
 ## config.js Settings
- 1) name: name.
- 2) description: description. 
+ 1) name: Name of the service that will be created (g-Agent_YOURNAME), DEFUALT: g-Agent, no spaces in the name.
+ 2) description: description of the service that will be created, DEFUALT: g-Dashboard background checker for `YOUR MACHINE` machine. 
  3) server: IP address of the main server to which all agents will report.
  4) PORT: Port of the main server to which all agents report.
  5) platform: operating system of the agent.
  6) pathToDisk: Path to the directory the agent should check.
- 7) websitesToCheck: An array of URLs that the agent will check and update.
- 8) isMemoryCheck: Boolean indicating whether the agent needs to do a memory check.
- 9) secondsToCheckResources: Number.
-10) secondsToUpdateResources: Number.
+ 7) pathToScript: Path to the script of the service (server.js).
+ 8) websitesToCheck: An Array of URLs that the agent will check and update.
+ 9) isMemoryCheck: Boolean indicating whether the agent needs to do a memory check.
+10) secondsToCheckResources: Number.
+11) secondsToUpdateResources: Number.
