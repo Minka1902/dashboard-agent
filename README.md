@@ -40,10 +40,7 @@ license: ENTER
 Is this OK? ENTER
 
 # installing packages
-### Windows
-npm install body-parser celebrate cors diskspace dotenv express scharff node-windows 
-### Linux
-npm install body-parser celebrate cors diskspace dotenv express scharff node-linux 
+npm install body-parser celebrate cors diskspace dotenv express scharff node-windows node-linux
 
 `At this point you move all the files and folders into that directory (g-agent).`
 
