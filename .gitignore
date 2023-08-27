@@ -6,6 +6,9 @@
 /.pnp
 .pnp.js
 *.log
+*.sh
+*.service
+gAgent-linux
 
 # testing
 /coverage

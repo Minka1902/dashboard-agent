@@ -18,4 +18,4 @@ svc.on('uninstall', function () {
     console.log('Uninstall complete.');
 });
 
-svc.uninstall();
+svc.install();
