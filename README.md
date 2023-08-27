@@ -1,18 +1,15 @@
 # g-Dashboard agent
 The Capacity Collection Agent, meticulously crafted by Geomage 2003, is a remarkable Node.js-based solution designed to effortlessly gather and record capacity data from servers. This agent demonstrates an exemplary fusion of functionality and transparency, ensuring seamless data retrieval while maintaining a comprehensive log of every data fetch operation.
 
-## Installation
+## Windows Installation
 1) Make sure you have nodejs and npm installed on your machine.
 2) If you have them installed you can ignore the next step.
 
-### Windows - Nodejs and npm installation
+### Nodejs and npm installation
 1) Download nodejs from the official website "https://nodejs.org/en/download".
 2) Open the command prompt and check the version of node and npm `node -v` and `npm -v`.
-### Linux - Nodejs and npm installation
-1) `sudo apt-get install nodejs`
-2) `sudo apt-get install npm`
 
-## Creating the new nodejs app
+### Creating the new nodejs app
 1) `mkdir g-agent`
 2) `cd g-agent`
 3) `npm init`
@@ -41,19 +38,17 @@ license: ENTER </br>
 }</br>
 Is this OK? ENTER
 
-## installing packages
-### Windows
+### installing packages
 `npm install body-parser celebrate cors diskspace dotenv express scharff node-windows`
-### Linux
-`npm install body-parser celebrate cors diskspace dotenv express scharff node-linux`
 
 At this point you move all the files and folders into the directory (g-agent).
 
-## Creating the Service:
-### Windows
-`node windowsInstall.js` ==> this will start the Windows service and should add a folder named 'daemon'
-### Linux
-`sudo node linuxInstall.js` ==> this will start the Linux service and will add a file named gagent.service to /etc/systemd/system
+### Creating the Service:
+`node windowsInstall.js` ==> this will start the Windows service and should add a folder named 'daemon' to your root.
+
+## Linux Installation
+1) Download the .zip folder and unpack it into /home/prod/agent. You can unpack it anywhere and change the path in `install.sh` accordingly.
+2) Run `/bin/bash <path_to>/install.sh`.
 
 ## config.js Settings
  1) name: g-Agent_service.
