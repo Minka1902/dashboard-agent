@@ -1,7 +1,8 @@
 # g-Dashboard agent
 The Capacity Collection Agent, meticulously crafted by Geomage 2003, is a remarkable Node.js-based solution designed to effortlessly gather and record capacity data from servers. This agent demonstrates an exemplary fusion of functionality and transparency, ensuring seamless data retrieval while maintaining a comprehensive log of every data fetch operation.
 
-## Windows Installation
+## Windows
+### Install
 1) Make sure you have nodejs and npm installed on your machine.
 2) If you have them installed you can ignore the next step.
 
@@ -44,21 +45,27 @@ Is this OK? ENTER
 At this point you move all the files and folders into the directory (g-agent).
 
 ### Creating the Service:
-`node windowsInstall.js` ==> this will start the Windows service and should add a folder named 'daemon' to your root.
+`node windowsInstall.js` ==> this will start the Windows service and will add a folder named 'daemon' to your root.
 
-## Linux Installation
-1) Download the .zip folder and unpack it into /home/prod/agent. You can unpack it anywhere and change the path in `install.sh` accordingly.
-2) Run `/bin/bash <path_to>/install.sh`.
+## Linux
+### Install
+1) `wget https://github.com/Minka1902/dashboard-agent/releases/download/v1.0.2/install.sh -P /`
+2) `/bin/bash /install.sh`.
+
+### Uninstall
+1) `/bin/bash /geomage/agent/uninstall.sh`.
+
+### Restart
+1) `sudo nano /geomage/agent/config.json`
+2) Make your changes in the config file.
+3) `/bin/bash /geomage/agent/restart.sh`.
 
 ## config.js Settings
- 1) name: g-Agent_service.
- 2) description: g-Dashboard background checker for `YOUR MACHINE` machine. 
- 3) server: IP address of the main server to which all agents will report.
- 4) PORT: Port of the main server to which all agents report.
- 5) platform: operating system of the agent.
- 6) pathToDisk: Path to the directory the agent should check.
- 7) pathToScript: Path to the script of the service (server.js).
- 8) websitesToCheck: An Array of URLs that the agent will check and update.
- 9) isMemoryCheck: Boolean indicating whether the agent needs to do a memory check.
-10) secondsToCheckResources: Seconds between every check.
-11) secondsToUpdateResources: Seconds between every update.
+1) name: name of the resource that will be created.
+2) description: g-Dashboard background checker for `YOUR MACHINE` machine. 
+3) server: hostname and port of the server we report to.
+4) address: URL of the resource (server or website).
+5) pathToDisk: Path to the directory the agent should check.
+6) isMemoryCheck: Boolean indicating whether the agent needs to do a memory check or just update the status.
+7) secondsToCheckResources: Seconds between every check.
+8) secondsToUpdateResources: Seconds between every update.

@@ -1,15 +1,13 @@
 [
     {
-        "address": "www.geomage3.com",
+        "address": "www.geomage.com",
         "description": "g-Dashboard background checker for Window machine.",
         "isMemoryCheck": false,
         "name": "website",
-        "pathToDisk": "C",
-        "platform": "Windows",
         "secondsToCheckResources": 20,
         "secondsToUpdateResources": 3600,
         "server": {
-            "hostname": "localhost",
+            "hostname": "89.169.96.143",
             "PORT": 4001
         }
     },
@@ -18,12 +16,10 @@
         "description": "g-Dashboard background checker for Window machine.",
         "isMemoryCheck": false,
         "name": "personal",
-        "pathToDisk": "C",
-        "platform": "Windows",
         "secondsToCheckResources": 20,
         "secondsToUpdateResources": 3600,
         "server": {
-            "hostname": "localhost",
+            "hostname": "89.169.96.143",
             "PORT": 4001
         }
     }
