@@ -52,15 +52,16 @@ At this point you move all the files and folders into the directory (g-agent).
 1) `wget https://github.com/Minka1902/dashboard-agent/releases/download/v1.0.2/install.sh -P /`
 2) `/bin/bash /install.sh`.
 
-### Uninstall
-1) `/bin/bash /geomage/agent/uninstall.sh`.
-
 ### Restart
 1) `sudo nano /geomage/agent/config.json`
 2) Make your changes in the config file.
 3) `/bin/bash /geomage/agent/restart.sh`.
 
-## config.js Settings
+### Uninstall
+1) `/bin/bash /geomage/agent/uninstall.sh`.
+
+## config.json
+### Properties
 1) name: name of the resource that will be created.
 2) description: g-Dashboard background checker for `YOUR MACHINE` machine. 
 3) server: hostname and port of the server we report to.
@@ -69,3 +70,23 @@ At this point you move all the files and folders into the directory (g-agent).
 6) isMemoryCheck: Boolean indicating whether the agent needs to do a memory check or just update the status.
 7) secondsToCheckResources: Seconds between every check.
 8) secondsToUpdateResources: Seconds between every update.
+
+### Structure
+[</br>
+&nbsp;&nbsp;&nbsp;&nbsp;{</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "OBJECT 1",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description": "g-Dashboard background checker for <YOUR MACHINE> machine.",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"address": "www.example.com",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isMemoryCheck": true,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"secondsToCheckResources": 20,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"secondsToUpdateResources": 3600,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"server": {</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    "hostname": "666.666.666.666",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    "PORT": 3000</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>
+&nbsp;&nbsp;&nbsp;&nbsp;},</br>
+&nbsp;&nbsp;&nbsp;&nbsp;{</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "OBJECT 2",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</br>
+&nbsp;&nbsp;&nbsp;&nbsp;}</br>
+]</br>
