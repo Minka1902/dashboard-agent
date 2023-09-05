@@ -1,0 +1,30 @@
+[
+    {
+        "address": "www.geomage3.com",
+        "description": "g-Dashboard background checker for Window machine.",
+        "isMemoryCheck": false,
+        "name": "website",
+        "pathToDisk": "C",
+        "platform": "Windows",
+        "secondsToCheckResources": 20,
+        "secondsToUpdateResources": 3600,
+        "server": {
+            "hostname": "localhost",
+            "PORT": 4001
+        }
+    },
+    {
+        "address": "michaelscharff-final.herokuapp.com",
+        "description": "g-Dashboard background checker for Window machine.",
+        "isMemoryCheck": false,
+        "name": "personal",
+        "pathToDisk": "C",
+        "platform": "Windows",
+        "secondsToCheckResources": 20,
+        "secondsToUpdateResources": 3600,
+        "server": {
+            "hostname": "localhost",
+            "PORT": 4001
+        }
+    }
+]
