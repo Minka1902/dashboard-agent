@@ -115,6 +115,11 @@ module.exports.createResource = (config) => {
         },
         method: 'POST',
     }).then(handleResponse)
+        .catch((err) => {
+            if (err) {
+                console.log(err);
+            }
+        });
 };
 
 const updateSource = (config, data) => {
