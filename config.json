@@ -5,7 +5,7 @@
         "isMemoryCheck": false,
         "name": "website",
         "secondsToCheckResources": 20,
-        "secondsToUpdateResources": 3600,
+        "secondsToUpdateResources": 10,
         "server": {
             "hostname": "89.169.96.143",
             "PORT": 4001
@@ -14,10 +14,11 @@
     {
         "address": "michaelscharff-final.herokuapp.com",
         "description": "g-Dashboard background checker for Window machine.",
-        "isMemoryCheck": false,
+        "isMemoryCheck": true,
+        "pathToDisk": "C",
         "name": "personal",
-        "secondsToCheckResources": 20,
-        "secondsToUpdateResources": 3600,
+        "secondsToCheckResources": 5,
+        "secondsToUpdateResources": 10,
         "server": {
             "hostname": "89.169.96.143",
             "PORT": 4001

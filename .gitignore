@@ -8,6 +8,7 @@
 *.log
 *.sh
 *.service
+*exe
 gAgent-linux
 
 # testing
