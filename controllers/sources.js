@@ -1,11 +1,14 @@
 const diskSpace = require('diskspace');
+const os = require('os');
 const handleResponse = (res) => (res.ok ? res.json() : Promise.reject(`Error: ${res.status}`))
 
 module.exports.updateMemory = (whatDisk, config) => {
     diskSpace.check(`${whatDisk}`, function (err, result) {
         if (!err) {
             if (result) {
-                let newData = { memoryLeft: result.free, totalMemory: result.total };
+                const freeMem = os.freemem();
+                const totalMem = os.totalmem();
+                let newData = { capacityLeft: result.free, totalCapacity: result.total, totalMemory: totalMem, freeMemory: freeMem };
                 newData.lastChecked = new Date();
                 updateSource(config, newData)
                     .then((data) => {
@@ -27,7 +30,9 @@ module.exports.createServerEntry = (whatDisk, config) => {
     diskSpace.check(`${whatDisk}`, function (err, result) {
         if (!err) {
             if (result) {
-                let newData = { memoryLeft: result.free, totalMemory: result.total, collectionName: `${config.address}` };
+                const freeMem = os.freemem();
+                const totalMem = os.totalmem();
+                let newData = { capacityLeft: result.free, totalCapacity: result.total, collectionName: `${config.address}`, totalMemory: totalMem, freeMemory: freeMem };
                 newData.checkedAt = new Date();
                 fetch(`http://${config.server.hostname}:${config.server.PORT}/add-entry`, {
                     body: JSON.stringify(newData),
