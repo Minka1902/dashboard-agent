@@ -49,7 +49,7 @@ At this point you move all the files and folders into the directory (g-agent).
 
 ## Linux
 ### Install
-1) `wget https://github.com/Minka1902/dashboard-agent/releases/download/v1.0.2/install.sh -P /`
+1) `wget https://github.com/Minka1902/dashboard-agent/releases/download/v1.0.4/install.sh -P /`
 2) `/bin/bash /install.sh`.
 
 ### Restart
@@ -65,7 +65,7 @@ At this point you move all the files and folders into the directory (g-agent).
 1) name: name of the resource that will be created.
 2) description: g-Dashboard background checker for `YOUR MACHINE` machine. 
 3) server: hostname and port of the server we report to.
-4) address: URL of the resource (server or website).
+4) address: URL or IP of the resource (server or website).
 5) pathToDisk: Path to the directory the agent should check.
 6) isMemoryCheck: Boolean indicating whether the agent needs to do a memory check or just update the status.
 7) secondsToCheckResources: Seconds between every check.
@@ -81,12 +81,12 @@ At this point you move all the files and folders into the directory (g-agent).
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"secondsToCheckResources": 20,</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"secondsToUpdateResources": 3600,</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"server": {</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hostname": "666.666.666.666",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hostname": "255.255.255.255",</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"PORT": 3000</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>
 &nbsp;&nbsp;&nbsp;&nbsp;},</br>
 &nbsp;&nbsp;&nbsp;&nbsp;{</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "OBJECT 2",</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</br>
-&nbsp;&nbsp;&nbsp;&nbsp;}</br>
+&nbsp;&nbsp;&nbsp;&nbsp;},</br>
 ]</br>
