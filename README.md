@@ -65,7 +65,7 @@ At this point you move all the files and folders into the directory (g-agent).
 1) name: name of the resource that will be created.
 2) description: g-Dashboard background checker for `YOUR MACHINE` machine. 
 3) server: hostname and port of the server we report to.
-4) address: URL or IP of the resource (server or website), without https://.
+4) address: URL or IP of the resource (machine) (server or website), without https://.
 5) pathToDisk: Path to the directory the agent should check.
 6) isMemoryCheck: Boolean indicating whether the agent needs to do a memory check or just update the status.
 7) secondsToCheckResources: Seconds between every check.
