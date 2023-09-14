@@ -99,9 +99,19 @@ module.exports.checkWebsite = (config, isEntry = false) => {
         })
         .catch((err) => {
             if (err) {
-                const newData = { isActive: false, status: err.status || 500 };
+                if (isEntry) {
+                    let dataObj = { status: 404, isActive: false, collectionName: `${config.address}` };
+                    dataObj.checkedAt = new Date();
+                    createWebEntry(dataObj, config);
+                }
+                const newData = { isActive: false, status: 404 };
                 newData.lastChecked = new Date();
                 updateSource(config, newData)
+                    .then((data) => {
+                        if (data) {
+
+                        }
+                    })
                     .catch((err) => {
                         if (err) {
                             console.log(err);
