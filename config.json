@@ -1,27 +1,40 @@
 [
     {
-        "address": "www.geomage.com",
-        "description": "g-Dashboard background checker for Window machine.",
+        "address": "www.example1.com",
+        "description": "resource1",
         "isMemoryCheck": false,
-        "name": "website",
-        "secondsToCheckResources": 20,
-        "secondsToUpdateResources": 10,
-        "server": {
-            "hostname": "89.169.96.143",
-            "PORT": 4001
-        }
-    },
-    {
-        "address": "michaelscharff-final.herokuapp.com",
-        "description": "g-Dashboard background checker for Window machine.",
-        "isMemoryCheck": true,
-        "pathToDisk": "C",
-        "name": "personal",
+        "name": "resource1",
         "secondsToCheckResources": 5,
         "secondsToUpdateResources": 10,
         "server": {
-            "hostname": "89.169.96.143",
-            "PORT": 4001
+            "hostname": "255.255.255.255",
+            "PORT": 3000
+        }
+    },
+    {
+        "address": "www.example2.com",
+        "description": "resource2",
+        "isMemoryCheck": true,
+        "pathToDisk": "D:/path/to/disk",
+        "name": "resource2",
+        "secondsToCheckResources": 5,
+        "secondsToUpdateResources": 10,
+        "server": {
+            "hostname": "255.255.255.255",
+            "PORT": 3000
+        }
+    },
+    {
+        "address": "www.example3.com",
+        "description": "resource3",
+        "isMemoryCheck": true,
+        "pathToDisk": "/path/to/disk",
+        "name": "resource3",
+        "secondsToCheckResources": 5,
+        "secondsToUpdateResources": 10,
+        "server": {
+            "hostname": "255.255.255.255",
+            "PORT": 3000
         }
     }
 ]
