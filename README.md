@@ -90,3 +90,9 @@ At this point you move all the files and folders into the directory (g-agent).
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</br>
 &nbsp;&nbsp;&nbsp;&nbsp;},</br>
 ]</br>
+
+## Resource states
+1) Active and status 200 - everything is working.
+2) Active and status 500 - resource active with a bad response.
+3) Active and status 400 - resource is active, we have a problem with the server.
+4) Not active and status 404 - resource not active.
