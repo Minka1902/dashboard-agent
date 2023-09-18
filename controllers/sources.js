@@ -76,7 +76,12 @@ module.exports.checkWebsite = (config, isEntry = false) => {
                     })
                     .catch((err) => {
                         if (err) {
-                            const newData = { isActive: false, status: err.statusCode || 500 };
+                            if (isEntry) {
+                                let dataObj = { status: 400, isActive: true, collectionName: `${config.address}` };
+                                dataObj.checkedAt = new Date();
+                                createWebEntry(dataObj, config);
+                            }
+                            const newData = { isActive: true, status: 400 };
                             newData.lastChecked = new Date();
                             updateSource(config, newData)
                                 .catch((err) => {
@@ -87,7 +92,12 @@ module.exports.checkWebsite = (config, isEntry = false) => {
                         }
                     });
             } else {
-                const newData = { isActive: false, status: res.statusCode || 500 };
+                if (isEntry) {
+                    let dataObj = { status: 500, isActive: true, collectionName: `${config.address}` };
+                    dataObj.checkedAt = new Date();
+                    createWebEntry(dataObj, config);
+                }
+                const newData = { isActive: true, status: 500 };
                 newData.lastChecked = new Date();
                 updateSource(config, newData)
                     .catch((err) => {
