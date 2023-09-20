@@ -22,7 +22,7 @@ app.use(cors());
 
 app.use(bodyParser.json()); // parse application/json
 
-const { updateMemory, createServerEntry, checkWebsite, createResource } = require('./controllers/sources');
+const { checkMemory, checkWebsite, createResource } = require('./controllers/sources');
 
 for (let i = 0; i < config.length; i++) {
     createResource(config[i]);
@@ -30,20 +30,20 @@ for (let i = 0; i < config.length; i++) {
     // ! every hour the server will check the source and add an entry to the source collection
     setInterval(() => {
         if (config[i].isMemoryCheck || false) {
-            createServerEntry(config[i].pathToDisk, config[i]);
+            checkMemory(config[i].pathToDisk, config[i], true);
         } else {
             checkWebsite(config[i], true);
         }
-    }, (config[i].secondsToUpdateResources * 1000));
+    }, (config[i].secondsToAddStats * 1000));
 
     // ! every 20 seconds the server will check the source
     setInterval(() => {
         if (config[i].isMemoryCheck || false) {
-            updateMemory(config[i].pathToDisk, config[i]);
+            checkMemory(config[i].pathToDisk, config[i]);
         } else {
             checkWebsite(config[i]);
         }
-    }, (config[i].secondsToCheckResources * 1000));
+    }, (config[i].secondsToUpdateSource * 1000));
 }
 app.use(errors());      // celebrate error handler
 
