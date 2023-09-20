@@ -3,7 +3,22 @@
         "address": "www.example1.com",
         "description": "resource1",
         "isMemoryCheck": false,
+        "shouldUpdate": true,
         "name": "resource1",
+        "secondsToCheckResources": 5,
+        "secondsToUpdateResources": 10,
+        "server": {
+            "hostname": "255.255.255.255",
+            "PORT": 3000
+        }
+    },
+    {
+        "address": "MY IP ADDRESS",
+        "description": "MY MACHINE",
+        "isMemoryCheck": true,
+        "shouldUpdate": false,
+        "pathToDisk": "C:/path/to/disk",
+        "name": "MY MACHINE",
         "secondsToCheckResources": 5,
         "secondsToUpdateResources": 10,
         "server": {
@@ -15,21 +30,9 @@
         "address": "www.example2.com",
         "description": "resource2",
         "isMemoryCheck": true,
-        "pathToDisk": "D:/path/to/disk",
-        "name": "resource2",
-        "secondsToCheckResources": 5,
-        "secondsToUpdateResources": 10,
-        "server": {
-            "hostname": "255.255.255.255",
-            "PORT": 3000
-        }
-    },
-    {
-        "address": "www.example3.com",
-        "description": "resource3",
-        "isMemoryCheck": true,
+        "shouldUpdate": true,
         "pathToDisk": "/path/to/disk",
-        "name": "resource3",
+        "name": "resource2",
         "secondsToCheckResources": 5,
         "secondsToUpdateResources": 10,
         "server": {
