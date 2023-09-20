@@ -65,11 +65,12 @@ At this point you move all the files and folders into the directory (g-agent).
 1) name: name of the resource that will be created.
 2) description: g-Dashboard background checker for `YOUR MACHINE` machine. 
 3) server: hostname and port of the server we report to.
-4) address: URL or IP of the resource (machine) (server or website), without https://.
+4) address: URL or IP of the resource (machine) (server or website), without https:// or any '/'.
 5) pathToDisk: Path to the directory the agent should check.
-6) isMemoryCheck: Boolean indicating whether the agent needs to do a memory check or just update the status.
-7) secondsToCheckResources: Seconds between every check.
-8) secondsToUpdateResources: Seconds between every update.
+6) isMemoryCheck: Boolean indicating whether the agent needs to do a memory&capacity check or just update the status and activity.
+7) shouldUpdate: Boolean indicating whether this resource should be updated or not, DEFAULT: true.
+8) secondsToUpdateSource: Seconds between every resource update.
+9) secondsToAddStats: Seconds between every statistic created by the agent.
 
 ### Structure
 [</br>
@@ -78,8 +79,9 @@ At this point you move all the files and folders into the directory (g-agent).
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description": "g-Dashboard background checker for <YOUR MACHINE> machine.",</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"address": "www.example.com",</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isMemoryCheck": true,</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"secondsToCheckResources": 20,</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"secondsToUpdateResources": 3600,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"shouldUpdate": true,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"secondsToUpdateSource": 20,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"secondsToAddStats": 3600,</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"server": {</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hostname": "255.255.255.255",</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"PORT": 3000</br>
