@@ -62,15 +62,16 @@ At this point you move all the files and folders into the directory (g-agent).
 
 ## config.json
 ### Properties
-1) name: name of the resource that will be created.
-2) description: g-Dashboard background checker for `YOUR MACHINE` machine. 
-3) server: hostname and port of the server we report to.
-4) address: URL or IP of the resource (machine) (server or website), without https:// or any '/'.
-5) pathToDisk: Path to the directory the agent should check.
-6) isMemoryCheck: Boolean indicating whether the agent needs to do a memory&capacity check or just update the status and activity.
-7) shouldUpdate: Boolean indicating whether this resource should be updated or not, DEFAULT: true.
-8) secondsToUpdateSource: Seconds between every resource update.
-9) secondsToAddStats: Seconds between every statistic created by the agent.
+ 1) name: name of the resource that will be created.
+ 2) description: g-Dashboard background checker for `YOUR MACHINE` machine. 
+ 3) server: hostname and port of the server we report to.
+ 4) address: URL or IP of the resource (machine) (server or website), without https:// or any '/'.
+ 5) pathToDisk: Path to the directory the agent should check.
+ 6) isMemoryCheck: Boolean indicating whether the agent needs to do a memory&capacity check or just update the status and activity.
+ 7) shouldUpdate: Boolean indicating whether this resource should be updated or not, DEFAULT: true.
+ 8) secondsToUpdateSource: Seconds between every resource update.
+ 9) secondsToAddStats: Seconds between every statistic created by the agent.
+10) additionalRoute: Any URL extension you may want/need (authentication/routes/paths etc...).
 
 ### Structure
 [</br>
@@ -78,6 +79,7 @@ At this point you move all the files and folders into the directory (g-agent).
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "OBJECT 1",</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description": "g-Dashboard background checker for <YOUR MACHINE> machine.",</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"address": "www.example.com",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"additionalRoute": "/another/example",</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isMemoryCheck": true,</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"shouldUpdate": true,</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"secondsToUpdateSource": 20,</br>
