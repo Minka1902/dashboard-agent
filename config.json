@@ -1,6 +1,7 @@
 [
     {
         "address": "www.example1.com",
+        "additionalRoute": "/yet/another/example",
         "description": "resource1",
         "isMemoryCheck": false,
         "shouldUpdate": true,
