@@ -22,7 +22,7 @@ module.exports.checkMemory = (whatDisk, config, isEntry = false) => {
 };
 
 module.exports.checkWebsite = (config, isEntry = false) => {
-    fetch(`http://${config.address}`)
+    fetch(`http://${config.address}${config.additionalRoute ? config.additionalRoute : ''}`)
         .then((res) => {
             if (res.ok) {
                 const newData = { isActive: true, status: res.status };
@@ -41,7 +41,7 @@ module.exports.checkWebsite = (config, isEntry = false) => {
                     .catch((err) => {
                         if (err) {
                             if (isEntry) {
-                                let dataObj = { status: 400, isActive: true, collectionName: `${config.address}` };
+                                let dataObj = { status: 400, isActive: true, collectionName: `${config.address}`, error: err };
                                 dataObj.checkedAt = new Date();
                                 createEntry(dataObj, config);
                             }
@@ -52,7 +52,7 @@ module.exports.checkWebsite = (config, isEntry = false) => {
                     });
             } else {
                 if (isEntry) {
-                    let dataObj = { status: 500, isActive: true, collectionName: `${config.address}` };
+                    let dataObj = { status: 500, isActive: true, collectionName: `${config.address}`, error: { message: 'Something is wrong with the response.' } };
                     dataObj.checkedAt = new Date();
                     createEntry(dataObj, config);
                 }
@@ -64,7 +64,7 @@ module.exports.checkWebsite = (config, isEntry = false) => {
         .catch((err) => {
             if (err) {
                 if (isEntry) {
-                    let dataObj = { status: 404, isActive: false, collectionName: `${config.address}` };
+                    let dataObj = { status: 404, isActive: false, collectionName: `${config.address}`, error: err.cause };
                     dataObj.checkedAt = new Date();
                     createEntry(dataObj, config);
                 }
